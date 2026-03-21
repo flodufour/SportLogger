@@ -87,63 +87,65 @@ SportLogger/
 │ ├─ main.cpp
 │ │
 │ ├─ core/
-│ │ ├─ Activity.h
-│ │ ├─ Activity.cpp
-│ │ ├─ GPSData.h
-│ │ ├─ HeartRateData.h
+│ │ ├─ Activity.h               TODO
+│ │ ├─ Activity.cpp               TODO
+│ │ ├─ GPSData.h               TODO
+│ │ ├─ HeartRateData.h               TODO
+│ │ ├─ HeartRateData.cpp               TODO
 │ │ ├─ ElevationData.h
+│ │ ├─ ElevationData.cpp
 │ │ ├─ ActivityManager.h
 │ │ └─ ActivityManager.cpp
 │ │
 │ ├─ interfaces/
-│ │ ├─ ICardioSensor.h
-│ │ ├─ IGPS.h
+│ │ ├─ ICardioSensor.h                TODO
+│ │ ├─ IGPS.h               TODO
 │ │ ├─ IElevationSensor.h
 │ │ ├─ IStorage.h
-│ │ └─ IUploader.h
+│ │ └─ IUploader.h               TODO
 │ │
 │ ├─ adapters/
 │ │ ├─ sensors/
-│ │ │ ├─ MAX30102Sensor.cpp
-│ │ │ ├─ MAX30102Sensor.h
-│ │ │ ├─ BME280Sensor.cpp
-│ │ │ └─ BME280Sensor.h
+│ │ │ ├─ MAX30102Sensor.cpp              TODO
+│ │ │ ├─ MAX30102Sensor.h              TODO
+│ │ │ ├─ BME280Sensor.cpp              TODO
+│ │ │ └─ BME280Sensor.h              TODO
 │ │ │
 │ │ ├─ gps/
-│ │ │ ├─ NEO6MGPS.cpp
-│ │ │ └─ NEO6MGPS.h
+│ │ │ ├─ NEO6MGPS.cpp              TODO
+│ │ │ └─ NEO6MGPS.h              TODO
 │ │ │
 │ │ ├─ storage/
 │ │ │ ├─ FileStorage.cpp
 │ │ │ └─ FileStorage.h
 │ │ │
 │ │ └─ upload/
-│ │ ├─ StravaUploader.cpp
-│ │ └─ StravaUploader.h
+│ │ ├─ StravaUploader.cpp        TODO
+│ │ └─ StravaUploader.h          TODO
 │ │
 │ └─ drivers/
-│ ├─ I2CDriver.cpp
-│ ├─ I2CDriver.h
-│ ├─ UARTDriver.cpp
-│ ├─ UARTDriver.h
-│ ├─ WiFiDriver.cpp
-│ ├─ WiFiDriver.h
-│ ├─ FileDriver.cpp
-│ └─ FileDriver.h
+│ ├─ I2CDriver.cpp               TODO
+│ ├─ I2CDriver.h                 TODO
+│ ├─ UARTDriver.cpp              TODO
+│ ├─ UARTDriver.h                TODO
+│ ├─ WiFiDriver.cpp              TODO
+│ ├─ WiFiDriver.h                TODO
+│ ├─ FileDriver.cpp              TODO
+│ └─ FileDriver.h                TODO
 │
 ├─ third_party/
 │ ├─ tinyxml2/
 │ └─ json/
 │
 ├─ tests/
-│ ├─ ActivityManagerTests.cpp
+│ ├─ ActivityManagerTests.cpp    TODO
 │ └─ mocks/
-│ ├─ MockCardioSensor.h
-│ ├─ MockGPS.h
-│ ├─ MockElevationSensor.h
-│ ├─ MockStorage.h
-│ └─ MockUploader.h
+│ ├─ MockCardioSensor.h          TODO
+│ ├─ MockGPS.h                   TODO
+│ ├─ MockElevationSensor.h       TODO
+│ ├─ MockStorage.h               TODO
+│ └─ MockUploader.h              TODO
 │
 └─ docs/
-└─ architecture.md
+└─ architecture.md               TODO
 
