@@ -13,7 +13,8 @@ void ActivityManager::stop() {
 void ActivityManager::collectData() {
     if (!elevationSensor) return;
 
-    ElevationData e = elevationSensor->readElevation();
+    auto ts = std::chrono::system_clock::now();
+    ElevationData e = elevationSensor->readElevation(ts);
     activity.addElevation(e);
 }
 

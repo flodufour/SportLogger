@@ -12,3 +12,4 @@ private:
     float elevation; 
     std::chrono::system_clock::time_point timestamp;
 };
+

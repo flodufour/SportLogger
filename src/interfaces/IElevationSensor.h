@@ -5,5 +5,6 @@
 class IElevationSensor {
 public:
     virtual ~IElevationSensor() = default;
-    virtual ElevationData readElevation() = 0;
+    virtual ElevationData readElevation(std::chrono::system_clock::time_point ts) = 0;
+
 };
