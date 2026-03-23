@@ -1,5 +1,6 @@
 #include "Activity.h"
 #include "ElevationData.h"
+#include "HeartRateData.h"
 #include <stdexcept>
 
 
@@ -25,6 +26,10 @@ void Activity::addElevation(const ElevationData& data) {
     elevations.push_back(data);
 }
 
+void Activity::addHeartRate(const HeartRateData& data) {
+    heartRates.push_back(data);
+}
+
 std::string Activity::getName() const {
     return name;
 }
@@ -48,4 +53,8 @@ std::chrono::seconds Activity::getDuration() const {
 
 const std::vector<ElevationData>& Activity::getElevations() const {
     return elevations;
+}
+
+const std::vector<HeartRateData>& Activity::getHeartRates() const {
+    return heartRates;
 }

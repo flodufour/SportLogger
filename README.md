@@ -98,7 +98,7 @@ SportLogger/
 │ │ └─ ActivityManager.cpp
 │ │
 │ ├─ interfaces/
-│ │ ├─ ICardioSensor.h                TODO
+│ │ ├─ IHeartRateSensor.h                TODO
 │ │ ├─ IGPS.h               TODO
 │ │ ├─ IElevationSensor.h
 │ │ ├─ IStorage.h
@@ -149,3 +149,7 @@ SportLogger/
 └─ docs/
 └─ architecture.md               TODO
 
+
+## Sources
+
+https://linux-dev.gitbook.io/communication-protocol-with-implementation/working-with-i2c-using-c++

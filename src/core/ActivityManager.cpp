@@ -11,10 +11,12 @@ void ActivityManager::stop() {
 }
 
 void ActivityManager::collectData() {
-    if (!elevationSensor) return;
+    if (!elevationSensor || !heartRateSensor) return;
 
     auto ts = std::chrono::system_clock::now();
     ElevationData e = elevationSensor->readElevation(ts);
+	HeartRateData hr = heartRateSensor->readHeartRate(ts);
+    activity.addHeartRate(hr);
     activity.addElevation(e);
 }
 

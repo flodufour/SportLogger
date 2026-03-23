@@ -1,4 +1,3 @@
-// adapters/storage/FileStorage.h
 #pragma once
 #include "../../interfaces/IStorage.h"
 #include <string>
