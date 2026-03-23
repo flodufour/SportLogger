@@ -16,8 +16,10 @@ void ActivityManager::collectData() {
     auto ts = std::chrono::system_clock::now();
     ElevationData e = elevationSensor->readElevation(ts);
 	HeartRateData hr = heartRateSensor->readHeartRate(ts);
+	GPSData g = gps->readPosition(ts);
     activity.addHeartRate(hr);
     activity.addElevation(e);
+    activity.addGPS(g);
 }
 
 const Activity& ActivityManager::getActivity() const {

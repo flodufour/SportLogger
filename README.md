@@ -87,19 +87,20 @@ SportLogger/
 │ ├─ main.cpp
 │ │
 │ ├─ core/
-│ │ ├─ Activity.h               TODO
-│ │ ├─ Activity.cpp               TODO
-│ │ ├─ GPSData.h               TODO
-│ │ ├─ HeartRateData.h               TODO
-│ │ ├─ HeartRateData.cpp               TODO
+│ │ ├─ Activity.h               
+│ │ ├─ Activity.cpp               
+│ │ ├─ GPSData.h               
+│ │ ├─ GPSData.cpp
+│ │ ├─ HeartRateData.h               
+│ │ ├─ HeartRateData.cpp               
 │ │ ├─ ElevationData.h
 │ │ ├─ ElevationData.cpp
 │ │ ├─ ActivityManager.h
 │ │ └─ ActivityManager.cpp
 │ │
 │ ├─ interfaces/
-│ │ ├─ IHeartRateSensor.h                TODO
-│ │ ├─ IGPS.h               TODO
+│ │ ├─ IHeartRateSensor.h                
+│ │ ├─ IGPS.h               
 │ │ ├─ IElevationSensor.h
 │ │ ├─ IStorage.h
 │ │ └─ IUploader.h               TODO
@@ -140,9 +141,9 @@ SportLogger/
 ├─ tests/
 │ ├─ ActivityManagerTests.cpp    TODO
 │ └─ mocks/
-│ ├─ MockCardioSensor.h          TODO
-│ ├─ MockGPS.h                   TODO
-│ ├─ MockElevationSensor.h       TODO
+│ ├─ MockHeartRateSensor.h          
+│ ├─ MockGPS.h                   
+│ ├─ MockElevationSensor.h       
 │ ├─ MockStorage.h               TODO
 │ └─ MockUploader.h              TODO
 │

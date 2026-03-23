@@ -1,6 +1,7 @@
 #include "core/ActivityManager.h"
 #include "tests/mocks/MockElevationSensor.h"
 #include "tests/mocks/MockHeartRateSensor.h"
+#include "tests/mocks/MockGPS.h"
 #include "adapters/storage/FileStorage.h"
 #include <iostream>
 #include <thread>
@@ -9,9 +10,10 @@
 int main() {
     MockElevationSensor elevationSensor;
 	MockHeartRateSensor heartRateSensor;
+	MockGPS gpsSensor;
     FileStorage storage("elevation.csv");
 
-    ActivityManager manager("Morning Run", &elevationSensor, &heartRateSensor, &storage);
+    ActivityManager manager("Morning Run", &elevationSensor, &heartRateSensor, &gpsSensor, &storage);
 
     manager.start();
 
@@ -28,10 +30,16 @@ int main() {
         std::cout << "Elevation: " << e.getElevation() << " m\n";
     }
 
-    const auto& hearRates = manager.getActivity().getHeartRates();
-    for (const auto& hr : hearRates) {
+    const auto& heartRates = manager.getActivity().getHeartRates();
+    for (const auto& hr : heartRates) {
         std::cout << "HR: " << hr.getHeartRate() << " m\n";
         std::cout << "SO2: " << hr.getOxygenSaturation() << " m\n";
+    }
+
+    const auto& gps = manager.getActivity().getGPS();
+    for (const auto& coordinates : gps) {
+        std::cout << coordinates.getLatitude() << " °\n";
+        std::cout << coordinates.getLongitude() << " °\n";
     }
 
     std::cout << "Run duration: "

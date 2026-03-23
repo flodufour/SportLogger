@@ -1,6 +1,7 @@
 #include "Activity.h"
 #include "ElevationData.h"
 #include "HeartRateData.h"
+#include "GPSData.h"
 #include <stdexcept>
 
 
@@ -30,6 +31,10 @@ void Activity::addHeartRate(const HeartRateData& data) {
     heartRates.push_back(data);
 }
 
+void Activity::addGPS(const GPSData& data) {
+    gps.push_back(data);
+}
+
 std::string Activity::getName() const {
     return name;
 }
@@ -57,4 +62,8 @@ const std::vector<ElevationData>& Activity::getElevations() const {
 
 const std::vector<HeartRateData>& Activity::getHeartRates() const {
     return heartRates;
+}
+
+const std::vector<GPSData>& Activity::getGPS() const {
+    return gps;
 }
