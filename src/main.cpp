@@ -2,7 +2,9 @@
 #include "tests/mocks/MockElevationSensor.h"
 #include "tests/mocks/MockHeartRateSensor.h"
 #include "tests/mocks/MockGPS.h"
+#include "tests/mocks/MockUploader.h"
 #include "adapters/storage/FileStorage.h"
+#include "core/TCXBuilder.h"
 #include <iostream>
 #include <thread>
 #include <chrono>
@@ -11,6 +13,7 @@ int main() {
     MockElevationSensor elevationSensor;
 	MockHeartRateSensor heartRateSensor;
 	MockGPS gpsSensor;
+	MockUploader uploader;
     FileStorage storage("elevation.csv");
 
     ActivityManager manager("Morning Run", &elevationSensor, &heartRateSensor, &gpsSensor, &storage);
@@ -25,26 +28,23 @@ int main() {
 
     manager.stop(); 
 
-    const auto& elevations = manager.getActivity().getElevations();
-    for (const auto& e : elevations) {
-        std::cout << "Elevation: " << e.getElevation() << " m\n";
+    TCXBuilder tcxBuilder;
+    std::string tcxFile = "activity.tcx";
+    bool tcxOk = tcxBuilder.build(manager.getActivity(), tcxFile);
+
+    if (tcxOk)
+        std::cout << "TCX file generated: " << tcxFile << "\n";
+    else {
+        std::cerr << "Failed to generate TCX file!\n";
+        return 1;
     }
 
-    const auto& heartRates = manager.getActivity().getHeartRates();
-    for (const auto& hr : heartRates) {
-        std::cout << "HR: " << hr.getHeartRate() << " m\n";
-        std::cout << "SO2: " << hr.getOxygenSaturation() << " m\n";
-    }
+    bool uploadOk = uploader.uploadActivity(tcxFile, manager.getActivity().getName(), "Test upload");
 
-    const auto& gps = manager.getActivity().getGPS();
-    for (const auto& coordinates : gps) {
-        std::cout << coordinates.getLatitude() << " °\n";
-        std::cout << coordinates.getLongitude() << " °\n";
-    }
-
-    std::cout << "Run duration: "
-        << manager.getActivity().getDuration().count()
-        << " seconds\n";
+    if (uploadOk)
+        std::cout << "Upload simulated successfully.\n";
+    else
+        std::cerr << "Upload failed.\n";
 
     return 0;
 }

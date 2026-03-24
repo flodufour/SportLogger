@@ -11,7 +11,7 @@ The system collects heart rate, GPS, and elevation data during an activity, stor
 During an activity:
 
 1. The heart rate sensor collects pulse data
-2. The GPS module records position and timestamps
+2. The GPS module records position
 3. The barometric sensor measures air pressure to estimate elevation
 4. The system aggregates sensor data into an activity session
 5. The session is stored locally on the device
@@ -29,8 +29,8 @@ External modules:
 
 - MAX30102 heart rate sensor (I2C)
 - NEO-6M GPS module (UART)
-- BME280 barometric pressure sensor (I2C) for elevation estimation
 - USB power bank for portable power
+- BME280 barometric pressure sensor (I2C) for elevation
 
 ---
 
@@ -103,7 +103,7 @@ SportLogger/
 │ │ ├─ IGPS.h               
 │ │ ├─ IElevationSensor.h
 │ │ ├─ IStorage.h
-│ │ └─ IUploader.h               TODO
+│ │ └─ IUploader.h
 │ │
 │ ├─ adapters/
 │ │ ├─ sensors/
@@ -121,8 +121,8 @@ SportLogger/
 │ │ │ └─ FileStorage.h
 │ │ │
 │ │ └─ upload/
-│ │ ├─ StravaUploader.cpp        TODO
-│ │ └─ StravaUploader.h          TODO
+│ │ ├─ StravaUploader.cpp        TO TEST
+│ │ └─ StravaUploader.h          TO TEST
 │ │
 │ └─ drivers/
 │ ├─ I2CDriver.cpp               TODO
@@ -131,8 +131,6 @@ SportLogger/
 │ ├─ UARTDriver.h                TODO
 │ ├─ WiFiDriver.cpp              TODO
 │ ├─ WiFiDriver.h                TODO
-│ ├─ FileDriver.cpp              TODO
-│ └─ FileDriver.h                TODO
 │
 ├─ third_party/
 │ ├─ tinyxml2/
@@ -144,8 +142,8 @@ SportLogger/
 │ ├─ MockHeartRateSensor.h          
 │ ├─ MockGPS.h                   
 │ ├─ MockElevationSensor.h       
-│ ├─ MockStorage.h               TODO
-│ └─ MockUploader.h              TODO
+│ ├─ MockStorage.h               
+│ └─ MockUploader.h              
 │
 └─ docs/
 └─ architecture.md               TODO
@@ -154,3 +152,7 @@ SportLogger/
 ## Sources
 
 https://linux-dev.gitbook.io/communication-protocol-with-implementation/working-with-i2c-using-c++
+
+https://developers.strava.com/docs/reference/
+
+https://github.com/leethomason/tinyxml2
