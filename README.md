@@ -77,8 +77,7 @@ This layer is platform-specific and isolated from business logic.
 
 ## Project Structure
 
-<pre> ```
-SportLogger/
+<pre> ```SportLogger/
 │
 ├─ CMakeLists.txt
 ├─ README.md
@@ -149,8 +148,7 @@ SportLogger/
 │ └─ MockUploader.h              TODO
 │
 └─ docs/
-└─ architecture.md               TODO
-```
+└─ architecture.md               TODO```</pre>
 
 
 ## Sources
