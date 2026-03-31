@@ -13,8 +13,8 @@ public:
     virtual ~IElevationSensor() = default;
     /**
     * @brief Gets the data from the elevation sensor
-    * @params ts Timestamp of the data collection
-    * @returns ElevationData Collected elevation data
+    * @param ts Timestamp of the data collection
+    * @return ElevationData Collected elevation data
     */
     virtual ElevationData readElevation(std::chrono::system_clock::time_point ts) = 0;
 };
