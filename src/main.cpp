@@ -16,11 +16,13 @@ int main() {
 	MockUploader uploader;
     FileStorage storage("elevation.csv");
 
+	// Set and start an activity
     ActivityManager manager("Morning Run", &elevationSensor, &heartRateSensor, &gpsSensor, &storage);
 
     manager.start();
 
     auto startTime = std::chrono::system_clock::now();
+	// Collect from the activity while it's active
     while (std::chrono::system_clock::now() - startTime < std::chrono::seconds(10)) {
         manager.collectData();
         std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -28,6 +30,7 @@ int main() {
 
     manager.stop(); 
 
+	// Save the activity to a tcx file
     TCXBuilder tcxBuilder;
     std::string tcxFile = "activity.tcx";
     bool tcxOk = tcxBuilder.build(manager.getActivity(), tcxFile);
@@ -39,6 +42,7 @@ int main() {
         return 1;
     }
 
+	// Upldoad the activity to Strava !
     bool uploadOk = uploader.uploadActivity(tcxFile, manager.getActivity().getName(), "Test upload");
 
     if (uploadOk)
