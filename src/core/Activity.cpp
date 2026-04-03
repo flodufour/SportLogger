@@ -8,6 +8,7 @@
 Activity::Activity(const std::string& name) : name(name) {}
 
 void Activity::start() {
+    // Check if the activity already started.
     if (running) {
         throw std::runtime_error("Activity already started");
     }
@@ -16,6 +17,7 @@ void Activity::start() {
 }
 
 void Activity::stop() {
+    // Check if the activity already stopped.
     if (!running) {
         throw std::runtime_error("Activity not started yet");
     }
@@ -49,10 +51,12 @@ std::chrono::system_clock::time_point Activity::getEndTime() const {
 
 std::chrono::seconds Activity::getDuration() const {
     if (running) {
+        // Calcul de la durée en temps réel.
         return std::chrono::duration_cast<std::chrono::seconds>(
             std::chrono::system_clock::now() - startTime
         );
     }
+    // Calcul de la durée en a partir des données de l'activité.
     return std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
 }
 
