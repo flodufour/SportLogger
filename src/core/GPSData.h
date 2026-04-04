@@ -3,7 +3,7 @@
 
 /** 
 * @class GPSData
-* @brief Represents cordinnates mesure and their mesure time.
+* @brief Represents coordinates mesure and their mesure time.
 */
 class GPSData {
 public:
